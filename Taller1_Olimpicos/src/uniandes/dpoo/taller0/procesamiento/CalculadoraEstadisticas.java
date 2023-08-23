@@ -142,6 +142,31 @@ public class CalculadoraEstadisticas
 		}
 		return resultado;
 	}
+	
+	/**
+	 * Compila la información de los atletas de un país.
+	 * 
+	 * @param nombreAtleta El nombre del atleta de interés.
+	 * @return Una lista de mapas con la información de todos los atletas del país.
+	 *         Cada registro de un atleta queda en un mapa que tiene tres llaves:
+	 *         "evento", que tiene asociado el nombre del evento en el que participó
+	 *         el atleta; "anio", que tiene asociado el año en el que el atleta
+	 *         participó en el evento; y "nombre" que tiene asociado el nombre del
+	 *         atleta.
+	 * 
+	 *         Si no se encuentra el país con el nombre indicado, se retorna null.
+	 */
+	public List<Map<String, Object>> PaisDeAtleta(String nombre_atleta)
+	{
+		List<Map<String, Object>> resultado = null;
+		Atleta elPais = buscarAtleta(nombre_atleta);
+		if (elPais != null)
+		{
+			resultado = new ArrayList<Map<String, Object>>();
+			resultado = elPais.consultarMedallas();
+		}
+		return resultado;
+	}
 
 	/**
 	 * Calcula cuál es el país con más medallistas en los juegos olímpicos. Si hay

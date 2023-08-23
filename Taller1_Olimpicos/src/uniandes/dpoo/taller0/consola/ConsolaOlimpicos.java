@@ -374,12 +374,26 @@ public class ConsolaOlimpicos
 	 */
 	private void ejecutarBuscarPaisAtleta()
     {
-		System.out.println("\n" + "Medallas de un atleta en un periodo" + "\n");
+		System.out.println("\n" + "País de origen de un atleta" + "\n");
 		
-		String nombre = input("¿Cual es el nombre del atleta que se desea consultar?");
+		String nombre_atleta = input("¿Cual es el nombre del atleta que se desea consultar?");
+		List<Map<String, Object>> atletas = calculadora.atletasPorPais(nombre_atleta);
+		if (atletas == null)
+		{
+			System.out.println("No existe un atleta con ese nombre");
+		}
+		else
+		{
+			for (Map<String, Object> datos : atletas)
+			{
+				String pais = (String) datos.get("pais");
+
+				int anio = (int) datos.get("anio");
+				System.out.println("El país al que pertenece el atleta" + nombre_atleta + "es" + pais);
+			}
+		}
 		
     }
-
 
 	/**
 	 * Este método le pide al usuario el nombre de un archivo con información de los

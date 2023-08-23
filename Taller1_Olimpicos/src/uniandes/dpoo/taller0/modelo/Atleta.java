@@ -304,4 +304,9 @@ public class Atleta
 		return nombre;
 	}
 
+	public List<Map<String, Object>> Atleta() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
